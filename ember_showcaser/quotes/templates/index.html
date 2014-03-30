@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <title>Ember.js showcase</title>
+    <meta charset="utf-8"/>
+    <script src="{{ STATIC_URL }}js/vendor/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/vendor/handlebars.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/vendor/ember-1.0.0-rc.1.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/vendor/ember-data.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/vendor/tastypie_serializer.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/vendor/tastypie_adapter.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/quotes.js" type="text/javascript"></script>
+    <style>
+        article {
+            border: 1px solid #eee;
+            padding: 3px;
+            margin-bottom: 3px;
+            font-size: 12px;
+        }
+        p {
+            margin: 0px;
+            font-style: italic;
+        }
+        .active {
+            color: red;
+        }
+        nav {
+            background-color: #EEE;
+            padding: 4px;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+{% verbatim %}
+    <script type="text/x-handlebars">
+        <h1>Ember.js Showcase Quotes App</h1>
+        <nav>
+            {{#linkTo quotes-list}}Quotes{{/linkTo}} |
+            {{#linkTo add-quote}}Add quote{{/linkTo}} |
+            {{#linkTo about}}About{{/linkTo}} |
+            {{#linkTo contact}}Contact{{/linkTo}}
+        </nav>
+        {{outlet}}
+    </script>
+    <script type="text/x-handlebars" data-template-name="quotes-list">
+        {{#each quote in quotes}}
+            <article>
+                {{quote.quote}}
+                <p>Added by: {{ quote.poster.username }}</p>
+            </article>
+        {{/each}}
+    </script>
+    <script type="text/x-handlebars" data-template-name="about">
+        <h2>About the application</h2>
+        <p>This application rocks!</p>
+    </script>
+    <script type="text/x-handlebars" data-template-name="contact">
+        <h2>Contact</h2>
+        <p>Call Houston in case of troubles.</p>
+    </script>
+    <script type="text/x-handlebars" data-template-name="add-quote">
+        <h2>Add a quote</h2>
+        <form>
+            {{view Ember.TextField valueBinding="quote" placeholder="Add a quote"}}
+        </form>
+    </script>
+{% endverbatim %}
+</body>
+</html>
