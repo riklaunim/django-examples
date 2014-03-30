@@ -44,7 +44,7 @@
         {{outlet}}
     </script>
     <script type="text/x-handlebars" data-template-name="quotes-list">
-        {{#each quote in quotes}}
+        {{#each quote in content}}
             <article>
                 {{quote.quote}}
                 <p>Added by: {{ quote.poster.username }}</p>

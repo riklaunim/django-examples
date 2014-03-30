@@ -1,15 +1,13 @@
 (function($, undefined ) {
     Quotes = Ember.Application.create();
-    Quotes.store = DS.Store.create({
-        revision: 11,
-        adapter: DS.DjangoTastypieAdapter.extend()
-    });
+    Quotes.ApplicationAdapter = DS.DjangoTastypieAdapter.extend({});
+    Quotes.ApplicationSerializer = DS.DjangoTastypieSerializer.extend({});
 
     var attr = DS.attr;
 
     Quotes.Quote = DS.Model.extend({
         quote: attr('string'),
-        poster: DS.belongsTo('Quotes.User'),
+        poster: DS.belongsTo('user'),
         posted_date: attr('date')
     });
     Quotes.User = DS.Model.extend({
@@ -29,20 +27,20 @@
         }
     });
     Quotes.QuotesListRoute = Ember.Route.extend({
-        setupController: function(controller) {
-            this._super();
-            controller.set('quotes', Quotes.Quote.find());
+        model: function() {
+            return this.store.find('quote');
         }
     });
 
     Quotes.AddQuoteController = Em.Controller.extend({
         quote: '',
-        saveQuote: function(text) {
-            if (text) {
-                var quote = Quotes.Quote.createRecord({'quote': text});
-                quote.store.commit();
-                this.set('quote', '');
-                this.transitionToRoute('quotes-list');
+        actions: {
+            saveQuote: function(text) {
+                if (text) {
+                    this.store.createRecord('quote', {'quote': text}).save();
+                    this.set('quote', '');
+                    this.transitionToRoute('quotes-list');
+                }
             }
         }
     });
