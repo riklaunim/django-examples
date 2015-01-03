@@ -1,0 +1,30 @@
+body {
+    font-family: sans-serif;
+}
+a {
+    color: #5C8DFF;
+    text-decoration: none;
+}
+a:hover {
+    color: #0D1C50;
+}
+h1 a {
+    color: #30316E;
+}
+
+nav {
+    background-color: #eee;
+    padding: 5px;
+    border: 1px solid black;
+}
+nav a {
+    margin-right: 10px;
+    font-weight: bold;
+    color: black;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+nav a.active, nav a.current {
+    color: #5C8DFF;
+}

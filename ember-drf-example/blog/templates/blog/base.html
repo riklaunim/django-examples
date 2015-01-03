@@ -1,0 +1,19 @@
+{% load staticfiles %}<!doctype html>
+<html>
+    <head>
+        <title>Django + Django Rest Framework + Ember.js example</title>
+        <meta name="Description" content="Serwis poświęcony tworzeniu serwisów internetowych, stron mobilnych, SEO, jak i gotowym skryptom i komponentom." />
+        <link rel="stylesheet" type="text/css" media="all" href="{% static "styles.css" %}" />
+    </head>
+    <body>
+    {% block body %}
+        <h1><a href="{% url 'posts' %}">Example Blog</a></h1>
+        <nav>
+            {% for category_entry in categories %}
+                <a href="{% url 'category-posts' category_entry.id %}" class="{% if category_entry.id == category.id or category_entry.id == post.category_id %}active{% endif %}">{{ category_entry.name }}</a>
+            {% endfor %}
+        </nav>
+        {% block content %}{% endblock %}
+    {% endblock %}
+    </body>
+</html>

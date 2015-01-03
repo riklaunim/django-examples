@@ -1,0 +1,11 @@
+{% verbatim %}
+{{#each post in content}}
+    <h2>{{#link-to "post" post.id}}{{post.title}}{{/link-to}}</h2>
+    <blockquote>
+        {{{post.text}}}
+        <p>{{date post.posted_date}}, {{post.category.name}}</p>
+    </blockquote>
+{{else}}
+    <p>No posts.</p>
+{{/each}}
+{% endverbatim %}

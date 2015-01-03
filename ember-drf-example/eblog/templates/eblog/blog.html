@@ -1,0 +1,31 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+
+{% block body %}
+<script type="text/x-handlebars">
+    {% include "eblog/body.handlebars" %}
+</script>
+<script type="text/x-handlebars" data-template-name="posts">
+    {% include "eblog/posts.handlebars" %}
+</script>
+<script type="text/x-handlebars" data-template-name="categoryPosts">
+    {% include "eblog/posts.handlebars" %}
+</script>
+<script type="text/x-handlebars" data-template-name="post">
+    {% include "eblog/post.handlebars" %}
+</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="{% static 'vendor/handlebars-v1.3.0.js' %}"></script>
+<script src="{% static 'vendor/ember.js' %}"></script>
+<script src="{% static 'vendor/ember-data.js' %}"></script>
+<script src="{% static 'vendor/ember-data-django-rest-adapter.js' %}"></script>
+<script src="{% static 'vendor/moment-with-locales.js' %}"></script>
+
+<script src="{% static 'application/app.js' %}"></script>
+<script src="{% static 'application/helpers.js' %}"></script>
+<script src="{% static 'application/router.js' %}"></script>
+<script src="{% static 'application/routes.js' %}"></script>
+<script src="{% static 'application/controllers.js' %}"></script>
+<script src="{% static 'application/models.js' %}"></script>
+<script src="{% static 'application/views.js' %}"></script>
+{% endblock %}

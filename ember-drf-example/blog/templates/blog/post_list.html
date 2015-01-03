@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+{% for post in post_list %}
+    <h2><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h2>
+    <blockquote>
+        {{ post.text|safe }}
+        <p>{{ post.posted_date|date:"Y.m.d H:i" }}</p>
+    </blockquote>
+{% endfor %}
+<footer>
+    <a href="{% url 'home' %}">Go to Ember version</a>
+</footer>
+{% endblock %}

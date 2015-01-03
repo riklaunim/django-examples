@@ -1,0 +1,7 @@
+{% verbatim %}
+<h1>{{#if isPython}}[PYTHON] {{/if}}{{content.title}}</h1>
+<blockquote>
+    {{{content.text}}}
+    <p>{{date content.posted_date}}, {{content.category.name}}</p>
+</blockquote>
+{% endverbatim %}
