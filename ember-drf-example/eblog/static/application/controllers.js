@@ -21,7 +21,6 @@
         needs: ["post"],
         isActive: function() {
             var path = Blog.get('currentPath');
-            console.log(path, path == 'post' && this.get('content.id') == this.get('controllers.post.content.category.id'));
             return path == 'post' && this.get('content.id') == this.get('controllers.post.content.category.id');
         }.property('content.id', 'controllers.post.content.category.id', 'Blog.currentPath')
     });
