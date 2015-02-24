@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Django + Facebook</title>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            a, a:visited {
+                color: #303680;
+            }
+        </style>
+    </head>
+    <body>
+        <h1><a href="{% url 'home' %}">Example Site</a></h1>
+        {% block content %}{% endblock %}
+    </body>
+</html>
