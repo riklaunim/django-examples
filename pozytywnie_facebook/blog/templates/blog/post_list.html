@@ -3,9 +3,12 @@
 {% block content %}
     {% for post in post_list %}
         <h2><a href="{% url 'post' post.id %}">{{ post.title }}</a></h2>
-        <blockquote>
-            {{ post.text|safe }}
-            <p>{{ post.posted_date|date:"Y.m.d H:i" }}</p>
+        <blockquote class="post-content">
+            <img src="{{ post.cover_image.url }}" alt="{{ post.title }}">
+            <div>
+                {{ post.text|safe }}
+                <p>{{ post.posted_date|date:"Y.m.d H:i" }}</p>
+            </div>
         </blockquote>
     {% endfor %}
 {% endblock %}
