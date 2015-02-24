@@ -106,8 +106,8 @@ STATIC_ROOT = '/tmp/facebook_example/'
 MEDIA_URL = 'http://localhost:8000/media/'
 MEDIA_ROOT = 'media/'
 
-FACEBOOK_APP_SECRET = 'a61a3fe07be4c127bbbdffc929c6aa67'
-FACEBOOK_APP_ID = '120509524643666'
+FACEBOOK_APP_SECRET = 'SECRET_HERE'
+FACEBOOK_APP_ID = 'APP_ID_HERE'
 BROKER_URL = 'django://'
 CELERY_ACCEPT_CONTENT = ['json']
 
