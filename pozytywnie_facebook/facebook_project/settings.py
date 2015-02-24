@@ -36,7 +36,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djcelery',
+    'kombu.transport.django',
+    'facebook_auth',
+    'facebook_signed_request',
     'social_metadata',
+    'sslserver',
     'blog',
     'canvas_example',
 )
@@ -44,11 +49,18 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'facebook_signed_request.middleware.SignedRequestMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'facebook_signed_request.middleware.FacebookLoginMiddleware',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'facebook_auth.backends.FacebookBackend',
+    'facebook_auth.backends.FacebookJavascriptBackend',
 )
 
 ROOT_URLCONF = 'facebook_project.urls'
@@ -88,3 +100,11 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/tmp/facebook_example/'
 MEDIA_URL = 'http://localhost:8000/media/'
 MEDIA_ROOT = 'media/'
+
+FACEBOOK_APP_SECRET = 'a61a3fe07be4c127bbbdffc929c6aa67'
+FACEBOOK_APP_ID = '120509524643666'
+BROKER_URL = 'django://'
+CELERY_ACCEPT_CONTENT = ['json']
+
+import djcelery
+djcelery.setup_loader()
