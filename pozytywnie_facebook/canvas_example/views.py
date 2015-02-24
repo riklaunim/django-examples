@@ -6,7 +6,7 @@ class CanvasViews(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(CanvasViews, self).get_context_data()
-        context['facebook'] = self.request.facebook
+        context['facebook'] = getattr(self.request, 'facebook', 'Not in canvas!')
         return context
 
 canvas = CanvasViews.as_view()

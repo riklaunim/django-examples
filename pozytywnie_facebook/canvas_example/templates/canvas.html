@@ -1,6 +1,53 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+{% load facebook_javascript_sdk %}
+{% load javascript_settings_tags %}
+
+{% block extrahead %}
+    <script type="text/javascript">{% javascript_settings %}</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'facebook_javascript_authentication/script.js' %}"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('.authentication span').click(authenticateWithFacebook);
+        });
+
+        function checkLogin() {
+            FB.getLoginStatus(function(response) {
+                var node = $('.init span');
+                if (response.status === 'connected') {
+                    node.text('Logged in ' + response.authResponse.userID);
+                }
+                else {
+                    node.text('Anonymous');
+                }
+            });
+        }
+        function authenticateWithFacebook() {
+            loginDialog(successCallback);
+
+            function successCallback(response) {
+                var node = $('.auth-response span');
+                if (response.status == 'ok') {
+                    node.text('ok ' + response.first_name + ' ' + response.last_name);
+                } else {
+                    node.text('error');
+                }
+            }
+        }
+    </script>
+{% endblock %}
 
 {% block content %}
+    {% fb_init_block %}{% endblock %}
     <h4>Signed request data</h4>
     <textarea style="width: 90%;height: 150px">{{ facebook }}</textarea>
+    <h4>Facebook JS SDK</h4>
+    <div class="init"><b>checkLogin called on init</b>: <span></span></div>
+    <div class="authentication"><b>Auth example</b>: <span style="cursor: pointer;color:blue;">Click to login</span></div>
+    <div class="auth-response"><b>Auth response</b>: <span></span></div>
+    <div><b>Django user</b>: {{ user }}</div>
+    {% fb_init_block %}
+        checkLogin();
+    {% endblock %}
 {% endblock %}

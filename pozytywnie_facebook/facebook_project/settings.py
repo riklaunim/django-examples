@@ -39,7 +39,10 @@ INSTALLED_APPS = (
     'djcelery',
     'kombu.transport.django',
     'facebook_auth',
+    'facebook_javascript_sdk',
+    'facebook_javascript_authentication',
     'facebook_signed_request',
+    'javascript_settings',
     'social_metadata',
     'sslserver',
     'blog',
@@ -49,6 +52,7 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'facebook_javascript_authentication.middlewares.P3PMiddleware',
     'facebook_signed_request.middleware.SignedRequestMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

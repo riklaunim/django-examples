@@ -5,3 +5,5 @@ django-sslserver==0.14
 pillow==2.7.0
 git+https://github.com/pozytywnie/django-social-metadata.git#egg=django-social-metadata
 git+https://github.com/pozytywnie/facebook-signed-request.git#egg=facebook-signed-request
+git+https://github.com/pozytywnie/facebook-javascript-sdk.git#egg=facebook-javascript-sdk
+git+https://github.com/pozytywnie/facebook-javascript-authentication.git#egg=facebook-javascript-authentication
