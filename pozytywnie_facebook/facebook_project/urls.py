@@ -8,4 +8,4 @@ urlpatterns = patterns(
     url(r'^$', 'blog.views.home_view', name='home'),
     url(r'^post/(?P<pk>[0-9]+)/$', 'blog.views.post_view', name='post'),
     url(r'^admin/', include(admin.site.urls)),
-) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_ROOT, document_root=settings.MEDIA_ROOT)
