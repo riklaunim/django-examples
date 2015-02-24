@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'djcelery',
     'kombu.transport.django',
     'facebook_auth',
+    'facebook_datastore',
     'facebook_javascript_sdk',
     'facebook_javascript_authentication',
     'facebook_signed_request',

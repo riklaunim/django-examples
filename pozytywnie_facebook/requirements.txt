@@ -7,3 +7,4 @@ git+https://github.com/pozytywnie/django-social-metadata.git#egg=django-social-m
 git+https://github.com/pozytywnie/facebook-signed-request.git#egg=facebook-signed-request
 git+https://github.com/pozytywnie/facebook-javascript-sdk.git#egg=facebook-javascript-sdk
 git+https://github.com/pozytywnie/facebook-javascript-authentication.git#egg=facebook-javascript-authentication
+git+https://github.com/pozytywnie/django-facebook-datastore.git#egg=django-facebook-datastore
