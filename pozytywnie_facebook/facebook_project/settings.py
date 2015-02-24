@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'social_metadata',
     'blog',
+    'canvas_example',
 )
 
 MIDDLEWARE_CLASSES = (
