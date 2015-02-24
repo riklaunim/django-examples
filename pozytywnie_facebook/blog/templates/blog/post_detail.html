@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+    {% include "social_metadata/default_tags.html" %}
+{% endblock %}
+
 {% block content %}
     <h1>{{ post.title }}</h1>
     {{ post.text|safe }}

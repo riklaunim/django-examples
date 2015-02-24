@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_metadata',
     'blog',
 )
 
@@ -81,7 +82,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+BASE_URL = 'http://localhost:8000'
 STATIC_URL = '/static/'
 STATIC_ROOT = '/tmp/facebook_example/'
-MEDIA_URL = '/media/'
+MEDIA_URL = 'http://localhost:8000/media/'
 MEDIA_ROOT = 'media/'
