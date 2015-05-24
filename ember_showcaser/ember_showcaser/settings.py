@@ -33,7 +33,7 @@ TIME_ZONE = 'Europe/Warsaw'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'pl'
+LANGUAGE_CODE = 'EN'
 
 SITE_ID = 1
 
@@ -121,7 +121,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'tastypie',
-    'south',
     'quotes',
 )
 
